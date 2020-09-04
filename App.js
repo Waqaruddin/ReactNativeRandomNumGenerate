@@ -7,38 +7,29 @@ export default function App() {
 
 const[random , setCounter] = useState(0);
 
- 
-
-
-
-
-  return (
+return (
     <View style={styles.container}>
 
-       <Text style = {{paddingTop: 20 }}>{random}</Text>
+      <View >
 
-      <Button
+       <Text style = {styles.textStyle}>{random}</Text>
+
+       </View>
+
+       <View style = {styles.buttonStyle}>
+
+          <Button style ={styles.buttonStyle}
       title = "Random Number Generator"
 
       onPress = { () => {
 
-        setCounter(Math.random);
+        setCounter(Math.floor(Math.random() * 100) + 1 );
       }}
 
-      ///onPress = {() => { setCounter(counter + 1);}}
       />
 
-
-
-      {/* <Button
-      
-      title = "Decrease"    onPress = {() => {setCounter(counter - 1);}}
-      
-      
-      /> */}
-      
-
-    <StatusBar style="auto" />
+       </View>
+      <StatusBar style="auto" />
     </View>
   );
 }
@@ -52,10 +43,14 @@ const styles = StyleSheet.create({
     padding: 50
   },
 
-  buttonStyle:{
-    flex:1,
+  textStyle:{
+    fontSize:40
+},
 
+  buttonStyle:{
   justifyContent:"center",
-    padding: 20
+    marginTop: 40,
+    fontWeight: 'bold',
+    backgroundColor:'#FFA500'
 },
 });
